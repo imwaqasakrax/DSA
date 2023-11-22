@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    
+    cout << "Enter a character: " << endl;
+    cin >> ch;
+
+    // Check if the entered character is a lowercase letter
+    if (ch >= 'a' && ch <= 'z') {
+        cout << "Lowercase letter" << endl;
+    } else if (ch >= 'A' && ch <= 'Z') {
+        cout << "Uppercase letter" << endl;
+    } else if (ch >= '0' && ch <= '9') {
+        cout << "Numeric letter" << endl;
+    } else {
+        cout << "Symbol" << endl;
+    }
+
+    return 0;
+}
+
+......................................................................................................
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char ch ;
+    cout<<"Enter the value of ch " <<endl;
+    cin>>ch;
+
+    if(ch > 96 && ch < 123) {
+        cout<<"Lower case";
+    }
+    else if (ch > 64 && ch < 91)
+    {
+        cout<<"Upper case";
+    }
+    
+    else if(ch>47 && ch < 58)
+    {
+        cout<<"Numeric";
+    }
+    else{
+        cout<<"symbol" ;
+    }
+    return 0;
+}
+
+
+
+
