@@ -1,0 +1,68 @@
+Problem statement
+You are given a 0-indexed array ‘NUMS’ consisting of ‘N’ integers. Sort the array ‘NUMS’ in such a way that the first half of the array contains only odd numbers sorted in non-increasing order and the second half contains only even numbers sorted in non-decreasing order.
+Example:
+Input: ‘N’ = 4,  ‘NUMS’ = [2, 5, 3, 6] 
+Output: [5, 3, 2, 6]
+Sorting the odd numbers of the array ‘NUMS’ in non-increasing order, the result is 5, 3
+Then, Sorting the even numbers in non-decreasing order, the result is 2, 6.
+Since the final array should contain the odd numbers in non-increasing order in the first half and even numbers in non-decreasing order in the other half.
+So, the final array is [5, 3, 2, 6].
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints :
+1 <= T <= 10
+1 <= N <= 10^5
+Sum of ‘N’ <= 10^5
+1 <= NUMS[i] <= 10^9
+Time Limit: 1 sec
+Sample Input 1 :
+2
+4
+9 4 2 6
+2
+2 1
+Sample Output 1 :
+9 2 4 6
+1 2
+Explanation Of Sample Input 1 :
+For the first case:
+Sorting odd integers in non-increasing order we get = 9
+Sorting even integers in non-decreasing order we get = 2 4 6
+So, the final array is [9, 2, 4, 6].    
+For the second case:
+Sorting odd integers in non-increasing order we get = 1
+Sorting even integers in non-decreasing order we get = 2
+So, the final array is [1, 2].
+Sample Input 2 :
+2
+6
+20 12 1 28 16 20 
+5
+2 14 29 21 11 
+Sample Output 2 :
+1 12 16 20 20 28
+29 21 11 2 14 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+from typing import List
+
+def sortOddEven(nums: List[int]) -> List[int]:
+    odd_numbers = sorted(filter(lambda x: x % 2 != 0, nums), reverse=True)
+    even_numbers = sorted(filter(lambda x: x % 2 == 0, nums))
+    sorted_nums = odd_numbers + even_numbers
+    return sorted_nums
+----------------------------------------------------------------------------------------------------------------------------------------------------
+def sortOddEven(nums):
+    oddnum = []
+    evennum = []
+
+    for num in nums:
+        if num % 2 == 1:
+            oddnum.append(num)
+        else:
+            evennum.append(num)
+
+    oddnum.sort(reverse=True)
+    evennum.sort()
+
+    nums.clear()
+    nums.extend(oddnum)
+    nums.extend(evennum)
